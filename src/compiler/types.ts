@@ -6468,7 +6468,7 @@ namespace ts {
             args: [{ name: "name" }],
             kind: PragmaKindFlags.TripleSlashXML
         },
-        "compilerOptions": {
+        "compiler-options": {
             args: [{ name: "target" }],
             kind: PragmaKindFlags.TripleSlashXML
         },

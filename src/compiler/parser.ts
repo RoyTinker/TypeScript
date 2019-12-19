@@ -8186,15 +8186,16 @@ namespace ts {
                     });
                     break;
                 }
-                case "compilerOptions": {
+                case "compiler-options": {
                     forEach(toArray(entryOrList), entry => {
-                        // _last_ compilerOptions target value in a file is the "winner"
-                        const targetKey = (entry as PragmaPseudoMap["compilerOptions"]).arguments.target;
+                        // _last_ compiler-options target value in a file is the "winner"
+                        const targetKey = (entry as PragmaPseudoMap["compiler-options"]).arguments.target;
                         if (ScriptTargetMap.has(targetKey)) {
+                            console.log("setting language version to " + targetKey);
                             context.languageVersion = ScriptTargetMap.get(targetKey) as ScriptTarget;
                         }
                         else {
-                            Debug.fail(`Unrecognized compilerOptions target in XML pragma: ${targetKey}`);
+                            Debug.fail(`Unrecognized compiler-options target in XML pragma: ${targetKey}`);
                         }
                     });
                     break;
