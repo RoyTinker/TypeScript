@@ -5163,6 +5163,20 @@ namespace ts {
         Latest = ESNext,
     }
 
+    export const ScriptTargetMap = createMapFromTemplate({
+        es3: ScriptTarget.ES3,
+        es5: ScriptTarget.ES5,
+        es6: ScriptTarget.ES2015,
+        es2015: ScriptTarget.ES2015,
+        es2016: ScriptTarget.ES2016,
+        es2017: ScriptTarget.ES2017,
+        es2018: ScriptTarget.ES2018,
+        es2019: ScriptTarget.ES2019,
+        es2020: ScriptTarget.ES2020,
+        esnext: ScriptTarget.ESNext,
+    });
+    Object.freeze(ScriptTargetMap);
+
     export const enum LanguageVariant {
         Standard,
         JSX
@@ -6452,6 +6466,10 @@ namespace ts {
         },
         "amd-module": {
             args: [{ name: "name" }],
+            kind: PragmaKindFlags.TripleSlashXML
+        },
+        "compilerOptions": {
+            args: [{ name: "target" }],
             kind: PragmaKindFlags.TripleSlashXML
         },
         "ts-check": {
